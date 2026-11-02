@@ -11,19 +11,16 @@
 /* Layout: sticky nav, full-bleed video hero, stat band, project cards, MARIS case study, experience, about, contact.
    Keeps the engineering-drawing language: mono labels, ruled data rows, yellow signal accent. */
 :root{
-  --paper:#f7f8f6; --plate:#ffffff; --ink:#151a20; --muted:#58616b; --rule:#d5d9dc; --card:#ffffff;
-  --signal:#e8b400; --signal-ink:#7a5d00;
-  --deep:#0b1015; --deep-ink:#eef1f3; --deep-muted:#9aa6b0; --deep-rule:#26303a;
+  /* Dark slate base, deeper bands, muted brass accent */
+  --paper:#121618; --card:#171c1f; --deep:#0b0e10; --plate:#cfd3ce;
+  --ink:#e2e5e1; --muted:#8d989c; --rule:#242c30; --rule-strong:#3a464c;
+  --signal:#c2a878; --signal-ink:#c2a878; --on-signal:#14181a;
+  --deep-ink:#e2e5e1; --deep-muted:#8d989c; --deep-rule:#20272b; --soft:#b4bec1;
   --display:"Barlow Condensed","Arial Narrow",sans-serif;
   --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#101418; --plate:#f4f5f3; --ink:#e7eaec; --muted:#9aa3ac; --rule:#2a3138; --card:#161b21;
-  --signal:#f2c230; --signal-ink:#f2c230; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --paper:#101418; --plate:#f4f5f3; --ink:#e7eaec; --muted:#9aa3ac; --rule:#2a3138; --card:#161b21;
-  --signal:#f2c230; --signal-ink:#f2c230; color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
@@ -49,20 +46,21 @@ p{margin:0 0 14px}
 
 /* Hero */
 .hero{position:relative;background:var(--deep);color:var(--deep-ink);overflow:hidden;min-height:min(86vh,780px);display:flex;align-items:flex-end}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,16,.86) 0%,rgba(8,12,16,.55) 45%,rgba(8,12,16,.05) 100%),linear-gradient(0deg,rgba(8,12,16,.7) 0%,transparent 45%)}
+.hero video{filter:saturate(.7) brightness(.85);position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,14,16,.86) 0%,rgba(11,14,16,.55) 45%,rgba(11,14,16,.05) 100%),linear-gradient(0deg,rgba(11,14,16,.7) 0%,transparent 45%)}
 .hero .wrap{position:relative;z-index:1;width:100%;padding-block:120px 48px}
 .hero .label{color:var(--signal)}
 .hero h1{font-size:clamp(60px,11vw,148px);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;margin-top:10px}
 .hero .role{font:500 clamp(20px,2.6vw,28px)/1.25 var(--display);letter-spacing:.02em;color:var(--deep-ink);margin-top:10px}
-.hero .pitch{max-width:46ch;font-size:clamp(16px,1.6vw,19px);color:#c9d1d8;margin:18px 0 28px}
+.hero .pitch{max-width:46ch;font-size:clamp(16px,1.6vw,19px);color:var(--soft);margin:18px 0 28px}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
 .btn{display:inline-block;background:none;font:600 13px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:14px 18px;border-radius:2px;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,background .15s ease}
 .btn:hover{transform:translateY(-1px)}
-.btn.primary{background:var(--signal);color:#151a20}
-.btn.ghost{border-color:rgba(255,255,255,.5);color:#fff}
-.btn.ghost:hover{background:rgba(255,255,255,.1)}
-.hero .tagline{position:absolute;right:max(16px,env(safe-area-inset-right,0px));bottom:16px;z-index:1;color:#c9d1d8}
+.btn.primary{background:var(--signal);color:var(--on-signal)}
+.btn.primary:hover{background:#d0b98c}
+.btn.ghost{border-color:var(--rule-strong);color:var(--ink)}
+.btn.ghost:hover{background:rgba(255,255,255,.05);border-color:var(--muted)}
+.hero .tagline{position:absolute;right:max(16px,env(safe-area-inset-right,0px));bottom:16px;z-index:1;color:var(--soft)}
 
 /* Stat band */
 .stats{border-bottom:1px solid var(--rule)}
@@ -84,9 +82,9 @@ section+section{border-top:1px solid var(--rule)}
 /* Project cards */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--rule);border-radius:3px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
-.card:hover{transform:translateY(-3px);border-color:var(--signal);box-shadow:0 10px 30px -18px rgba(0,0,0,.45)}
+.card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--signal) 60%,var(--rule));box-shadow:0 14px 34px -20px rgba(0,0,0,.8)}
 .card .media{background:var(--plate);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;padding:18px}
-.card .media img{max-width:100%;max-height:100%;width:auto;height:auto;display:block}
+.card .media img{mix-blend-mode:multiply;max-width:100%;max-height:100%;width:auto;height:auto;display:block}
 .card .inner{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
 .card h3{font-size:30px}
 .card p{color:var(--muted);margin:0;font-size:15px}
@@ -94,12 +92,12 @@ section+section{border-top:1px solid var(--rule)}
 .card.feature{grid-column:span 2;flex-direction:row}
 .card.feature .media{flex:1.35;aspect-ratio:auto;min-height:300px}
 .card.feature .inner{flex:1}
-.card .num{font:600 64px/1 var(--display);color:var(--rule);font-variant-numeric:tabular-nums}
+.card .num{font:600 64px/1 var(--display);color:var(--rule-strong);font-variant-numeric:tabular-nums}
 .card.dark{background:var(--deep);border-color:var(--deep-rule);color:var(--deep-ink)}
 .card.dark p{color:var(--deep-muted)}
-.card.dark .num{color:var(--deep-rule)}
+.card.dark .num{color:var(--rule-strong)}
 .card.dark .more{color:var(--signal)}
-.tag{display:inline-block;align-self:flex-start;background:var(--signal);color:#151a20;font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:6px 8px}
+.tag{display:inline-block;align-self:flex-start;background:var(--signal);color:var(--on-signal);font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:6px 8px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
 .chips li{font:500 11px/1 var(--mono);padding:6px 8px;border:1px solid var(--rule);color:var(--muted);letter-spacing:.03em}
 .card.dark .chips li{border-color:var(--deep-rule);color:var(--deep-muted)}
@@ -109,8 +107,8 @@ section+section{border-top:1px solid var(--rule)}
 .now .label{color:var(--deep-muted)}
 .now .head .sub{color:var(--deep-muted)}
 .now-grid{display:grid;grid-template-columns:180px 1fr 1fr;gap:24px}
-.now-grid p{color:#c9d1d8}
-.owns{list-style:none;margin:0;padding:0;border-top:2px solid var(--signal)}
+.now-grid p{color:var(--soft)}
+.owns{list-style:none;margin:0;padding:0;border-top:1px solid var(--signal)}
 .owns li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--deep-rule);font:500 14px var(--mono)}
 .owns li span{color:var(--deep-muted);font-weight:400}
 
@@ -124,18 +122,18 @@ section+section{border-top:1px solid var(--rule)}
 .story{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px}
 .story h3{font-size:26px;margin:10px 0 10px}
 .story p{color:var(--muted);font-size:15px}
-.story .step{border-top:2px solid var(--ink);padding-top:14px}
-.specs{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);margin:40px 0 0}
+.story .step{border-top:1px solid var(--rule-strong);padding-top:14px}
+.specs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule-strong);margin:40px 0 0}
 .specs div{padding:14px 16px 14px 0;border-bottom:1px solid var(--rule)}
 .specs .v{font:600 34px/1 var(--display);font-variant-numeric:tabular-nums}
 .specs .v small{font:500 14px var(--mono);color:var(--muted);margin-left:3px}
 .specs .k{font:400 12px/1.4 var(--mono);color:var(--muted);margin-top:6px}
 .awards{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.awards li{font:500 12px/1 var(--mono);padding:9px 11px;border:1px solid var(--signal);color:var(--signal-ink);letter-spacing:.03em}
+.awards li{font:500 12px/1 var(--mono);padding:9px 11px;border:1px solid color-mix(in srgb,var(--signal) 45%,transparent);color:var(--signal-ink);letter-spacing:.03em}
 .awards li.label{border:0;padding:0 8px 0 0;color:var(--muted)}
 
 /* Experience timeline */
-.timeline{border-top:2px solid var(--ink)}
+.timeline{border-top:1px solid var(--rule-strong)}
 .item{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--rule)}
 .item .when{font:400 13px/1.5 var(--mono);color:var(--muted)}
 .item h3{font-size:28px}
@@ -151,7 +149,7 @@ section+section{border-top:1px solid var(--rule)}
 .pts{margin:10px 0 0;padding-left:18px;color:var(--muted);max-width:68ch}
 .pts li{margin-bottom:6px}
 .pts li::marker{color:var(--signal)}
-.skills{border-top:2px solid var(--ink)}
+.skills{border-top:1px solid var(--rule-strong)}
 .skills div{padding:14px 0;border-bottom:1px solid var(--rule)}
 .skills b{display:block;font:500 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 
@@ -160,7 +158,7 @@ section+section{border-top:1px solid var(--rule)}
 .contact h2{font-size:clamp(48px,8vw,104px);text-transform:uppercase;font-weight:700}
 .contact .label{color:var(--signal)}
 .contact .row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:28px}
-.email{font:500 clamp(18px,2.4vw,26px) var(--mono);color:#fff;text-decoration:none;border-bottom:2px solid var(--signal);padding-bottom:2px;word-break:break-all}
+.email{font:500 clamp(18px,2.4vw,26px) var(--mono);color:var(--ink);text-decoration:none;border-bottom:2px solid var(--signal);padding-bottom:2px;word-break:break-all}
 footer{background:var(--deep);color:var(--deep-muted);border-top:1px solid var(--deep-rule)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:22px}
 
@@ -289,13 +287,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
             <span class="more">Experience ↓</span>
           </div>
         </a>
-        <a class="card reveal" href="#about">
+        <a class="card reveal" href="#experience">
           <div class="inner">
             <div class="num">05</div>
-            <div class="label">Off the clock</div>
-            <h3>Skipper and maker</h3>
-            <p>Licensed skipper with 900+ nautical miles off Croatia. Restored a 50-year-old wooden boat; carved a speargun and laid up carbon freediving fins.</p>
-            <span class="more">About ↓</span>
+            <div class="label">Education · 2021–26</div>
+            <h3>MEng Mechanical Engineering, UCL</h3>
+            <p>First Class Honours. Maritime design, ship hydrostatics and offshore engineering; Best CAD award from Autodesk for MARIS.</p>
+            <span class="more">Experience ↓</span>
           </div>
         </a>
       </div>
@@ -393,7 +391,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
             <li>Led the powertrain, loom and telemetry sub-team: best UK team at Shell Eco-marathon Europe 2023 with 246.47 km/kWh.</li>
             <li>Designed a custom motor controller in KiCAD and a low-voltage 6S2P lithium battery pack.</li>
           </ul></div></div>
-        <div class="item reveal"><div class="when">2021 – 2025, summers</div><div><h3>Skipper4You, Split</h3><div class="org">Licensed Skipper</div><p>900+ nautical miles with over 30 clients.</p></div></div>
         <div class="item reveal"><div class="when">Oct 2022 – Jun 2024</div><div><h3>Mechspace UCL</h3><div class="org">Student Mentor, university workshop</div><p>Guiding students in safe use of laser cutters, 3D printers, lathes and mills.</p></div></div>
         <div class="item reveal"><div class="when">2021 – 2026</div><div><h3>University College London</h3><div class="org">MEng Mechanical Engineering · First Class Honours</div><p>Modules incl. Maritime Design, Ship Hydrostatics, Offshore and Coastal Engineering, Data-Driven Methods. Final-year project: MARIS.</p></div></div>
         <div class="item reveal"><div class="when">2019 – 2021</div><div><h3>Durham School</h3><div class="org">A Levels: Maths, Further Maths, Physics · A* A A</div><p>Two-year academic scholarship, HMC Projects Scholarship Programme.</p></div></div>
@@ -406,7 +403,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       <div class="label reveal">About</div>
       <div class="text reveal">
         <figure class="portrait"><img src="img/bartol-portrait.webp" width="720" height="900" loading="lazy" alt="Portrait of Bartol Vahcic in graduation cap and gown"></figure>
-        <p class="lead">A licensed skipper with 900+ nautical miles off the Croatian coast, I now design vehicles that work beneath the surface.</p>
+        <p class="lead">Mechanical design engineer working across hulls, pressure vessels, composites and batteries, from Formula E to the seabed.</p>
         <p>My work sits where mechanical design, electronics and software meet. I'm based between Zagreb and Budapest, where I'm co-founding Sentyx. Croatian (native), English (C2), German (A2).</p>
       </div>
       <div class="skills reveal">
