@@ -68,15 +68,9 @@ section.sheet{padding-block:64px;border-top:1px solid var(--rule)}
 .awards{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-wrap:wrap;gap:8px}
 .awards li{font:500 12px/1 var(--mono);padding:8px 10px;border:1px solid var(--signal);color:var(--signal-ink);letter-spacing:.03em}
 
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px}
-.gallery figure{margin:0}
-.gallery .plate{padding:12px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;max-width:100%}
-.gallery .plate img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
-.gallery figcaption{margin-top:8px}
 
-/* Field test: real photos, full-bleed in the frame (no plate padding) */
-.field{margin-top:56px;padding-top:28px;border-top:1px solid var(--rule)}
-.field .body{margin-bottom:24px}
+/* Highlight: lake trial video with photos beneath */
+.highlight{margin-bottom:40px}
 .photo{margin:0}
 .photo img,.photo video{display:block;width:100%;height:100%;object-fit:cover;border-radius:2px;background:var(--rule)}
 .photo figcaption{margin-top:8px}
@@ -104,7 +98,7 @@ button.copy:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
   .tb .wrap{grid-template-columns:1fr}
   .sheet-head,.body{grid-template-columns:1fr;gap:8px}
   .specs{grid-template-columns:repeat(2,1fr)}
-  .gallery,.pair{grid-template-columns:1fr}
+  .pair{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:no-preference){
   .hero .plate img{animation:rise .9s ease-out both}
@@ -159,11 +153,19 @@ button.copy:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
         <div class="label">Project 01 · UCL</div>
         <div><h2>Project MARIS</h2><div class="sub">Blended-wing-body autonomous underwater glider · MEng final-year project, team of 8</div></div>
       </div>
+      <div class="highlight">
+        <figure class="photo wide"><video id="lake-video" src="video/maris-lake-trial.mp4" poster="img/maris-lake-underwater.webp" width="1280" height="720" muted loop playsinline controls preload="none" aria-label="MARIS gliding away underwater on its tether, then surfacing out on the lake"></video><figcaption class="caption"><span class="label">Fig. 2 · Lake trial, underwater glide and surfacing</span><span class="label">0:58</span></figcaption></figure>
+        <div class="pair">
+          <figure class="photo"><img src="img/maris-lake-pontoon.webp" width="900" height="1200" loading="lazy" alt="Team member in a wetsuit at the edge of a pontoon guiding the yellow glider in the lake"><figcaption class="label">Fig. 3 · Launch from the pontoon</figcaption></figure>
+          <figure class="photo"><img src="img/maris-lake-shallows.webp" width="1024" height="768" loading="lazy" alt="Team member wading in the rain beside the glider floating at the surface"><figcaption class="label">Fig. 4 · Surface checks in the shallows</figcaption></figure>
+        </div>
+      </div>
       <div class="body">
         <div class="label">Summary</div>
         <div class="text">
           <p>MARIS is a 200 m-rated underwater glider that flies on buoyancy alone. Two variable buoyancy devices change its displacement to dive and climb, and a blended-wing hull turns that vertical motion into forward glide. A pitch-and-roll mechanism steers it.</p>
           <p>The flooded skeleton hull splits into a central body, two wings and a vertical stabiliser, and is closed by 15 detachable fibreglass skin panels. Three aluminium pressure vessels carry the buoyancy and attitude systems, with Iridium and GNSS antennas in custom pressure-rated blisters. The hull shape came out of a CFD-driven surrogate optimisation for lift-to-drag.</p>
+          <p>The finished glider was taken from CAD to open water for a full lake trial, flown on a safety tether.</p>
           <ul class="awards">
             <li>Best Prototype</li><li>Best Poster</li><li>CEE-FES Faculty Best Prototype</li><li>Best CAD · Autodesk (individual)</li>
           </ul>
@@ -174,24 +176,6 @@ button.copy:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
         <div><div class="v">44.4<small>kg</small></div><div class="k">Dry mass</div></div>
         <div><div class="v">±13.3<small>N</small></div><div class="k">Buoyancy swing, 2 VBDs</div></div>
         <div><div class="v">≥10<small>:1</small></div><div class="k">Lift-to-drag target, validated</div></div>
-      </div>
-      <div class="gallery">
-        <figure><div class="plate"><img src="img/maris-internals.webp" width="1600" height="830" loading="lazy" alt="MARIS with top skin panels removed, showing pressure vessels and foam inside the skeleton"></div><figcaption class="label">Fig. 2 · Skins removed, internal layout</figcaption></figure>
-        <figure><div class="plate"><img src="img/maris-exploded.webp" width="1600" height="810" loading="lazy" alt="Exploded view of the MARIS skeleton: two wings, central body and stabiliser"></div><figcaption class="label">Fig. 3 · Exploded skeleton, four-part split</figcaption></figure>
-        <figure><div class="plate"><img src="img/maris-skeleton.webp" width="1600" height="728" loading="lazy" alt="Assembled MARIS skeleton frame without skins"></div><figcaption class="label">Fig. 4 · Assembled skeleton frame</figcaption></figure>
-        <figure><div class="plate"><img src="img/maris-shackle.webp" width="1600" height="900" loading="lazy" alt="Close-up of a recovery shackle mounted on the glider hull"></div><figcaption class="label">Fig. 5 · Recovery and lift point</figcaption></figure>
-      </div>
-
-      <div class="field">
-        <div class="body">
-          <div class="label">Field test</div>
-          <div class="text"><p>The finished glider was taken from CAD to open water for a full lake trial, flown on a safety tether.</p></div>
-        </div>
-        <figure class="photo wide"><video id="lake-video" src="video/maris-lake-trial.mp4" poster="img/maris-lake-underwater.webp" width="1280" height="720" muted loop playsinline controls preload="none" aria-label="MARIS gliding away underwater on its tether, then surfacing out on the lake"></video><figcaption class="label">Fig. 6 · Lake trial footage, underwater glide and surfacing · 0:58</figcaption></figure>
-        <div class="pair">
-          <figure class="photo"><img src="img/maris-lake-pontoon.webp" width="900" height="1200" loading="lazy" alt="Team member in a wetsuit at the edge of a pontoon guiding the yellow glider in the lake"><figcaption class="label">Fig. 7 · Launch from the pontoon</figcaption></figure>
-          <figure class="photo"><img src="img/maris-lake-shallows.webp" width="1024" height="768" loading="lazy" alt="Team member wading in the rain beside the glider floating at the surface"><figcaption class="label">Fig. 8 · Surface checks in the shallows</figcaption></figure>
-        </div>
       </div>
     </div>
   </section>
