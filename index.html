@@ -146,6 +146,11 @@ section+section{border-top:1px solid var(--rule)}
 .about{display:grid;grid-template-columns:180px 1.2fr 1fr;gap:24px}
 .about .lead{font-size:clamp(19px,2vw,22px);line-height:1.5;margin:0 0 18px}
 .about .text p{color:var(--muted)}
+.portrait{margin:0 0 22px;max-width:260px}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:3px}
+.pts{margin:10px 0 0;padding-left:18px;color:var(--muted);max-width:68ch}
+.pts li{margin-bottom:6px}
+.pts li::marker{color:var(--signal)}
 .skills{border-top:2px solid var(--ink)}
 .skills div{padding:14px 0;border-bottom:1px solid var(--rule)}
 .skills b{display:block;font:500 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
@@ -218,7 +223,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     <div class="label">Mechanical design engineer · MEng UCL, First Class</div>
     <h1>Bartol Vahcic</h1>
     <div class="role">Co-founder, Sentyx · Autonomous underwater gliders</div>
-    <p class="pitch">I design and build autonomous vehicles where mechanical design, electronics and software meet: an award-winning underwater glider, four years of ultra-efficient race cars, and Formula E.</p>
+    <p class="pitch">I design and build autonomous vehicles where mechanical design, electronics and software meet: an award-winning underwater glider, four years of Shell Eco-marathon race cars, and Formula E with Jaguar TCS Racing.</p>
     <div class="btns">
       <a class="btn primary" href="#maris">Watch MARIS fly</a>
       <a class="btn ghost" href="#contact">Get in touch</a>
@@ -230,9 +235,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 <div class="stats" aria-label="At a glance">
   <div class="wrap">
     <div class="stat"><div class="v">200<small>m</small></div><div class="k">Glider design depth</div></div>
-    <div class="stat"><div class="v">4</div><div class="k">Awards for MARIS</div></div>
-    <div class="stat"><div class="v">4<small>yrs</small></div><div class="k">Shell Eco-marathon racing</div></div>
-    <div class="stat"><div class="v">FE</div><div class="k">Jaguar TCS Racing placement</div></div>
+    <div class="stat"><div class="v">−10<small>%</small></div><div class="k">Gearcase mass via nTop, Formula E</div></div>
+    <div class="stat"><div class="v">246<small>km/kWh</small></div><div class="k">Best UK team, Shell Eco-marathon Europe 2023</div></div>
+    <div class="stat"><div class="v">15</div><div class="k">Engineers led as Technical Director</div></div>
   </div>
 </div>
 
@@ -241,7 +246,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     <div class="wrap">
       <div class="head reveal">
         <div class="label">Selected work</div>
-        <div><h2>Things I've built</h2><div class="sub">From a 200 m-rated glider to hydrogen race cars. Click through for the details.</div></div>
+        <div><h2>Things I've built</h2><div class="sub">From a 200 m-rated glider to Formula E and hydrogen race cars.</div></div>
       </div>
       <div class="cards">
         <a class="card feature reveal" href="#maris">
@@ -249,8 +254,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
           <div class="inner">
             <div class="label">01 · UCL MEng · Team of 8</div>
             <h3>Project MARIS</h3>
-            <p>A blended-wing-body autonomous underwater glider that flies on buoyancy alone. Designed, built and lake-tested by a team of eight.</p>
-            <ul class="chips"><li>Buoyancy engines</li><li>Pressure vessels</li><li>CFD optimisation</li><li>Composites</li></ul>
+            <p>A blended-wing-body autonomous underwater glider that flies on buoyancy alone. I was responsible for the hull, batteries and manufacturing.</p>
+            <ul class="chips"><li>Hull design</li><li>Batteries</li><li>Manufacturing</li><li>Autodesk Fusion</li></ul>
             <span class="more">Case study + video ↓</span>
           </div>
         </a>
@@ -267,27 +272,29 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
         <a class="card reveal" href="#experience">
           <div class="inner">
             <div class="num">03</div>
-            <div class="label">UCL Racing · 4 years</div>
-            <h3>HyperMile, Shell Eco-marathon</h3>
-            <p>Ultra-efficient hydrogen vehicles. Autonomous Driving Challenge winners; qualified for the World Championship in Qatar.</p>
+            <div class="label">Placement · 2024–25</div>
+            <h3>Jaguar TCS Racing, Formula E</h3>
+            <p>Design Office of the reigning Formula E champions. FIA composite anti-intrusion panels, generative design in nTop, and 50+ GD&amp;T drawings.</p>
+            <ul class="chips"><li>Siemens NX</li><li>nTop</li><li>Composites</li></ul>
             <span class="more">Experience ↓</span>
           </div>
         </a>
         <a class="card reveal" href="#experience">
           <div class="inner">
             <div class="num">04</div>
-            <div class="label">Placement</div>
-            <h3>Jaguar TCS Racing</h3>
-            <p>Design engineering on the team's Formula E cars.</p>
+            <div class="label">UCL Racing · 2022–26</div>
+            <h3>Shell Eco-marathon</h3>
+            <p>From electronics engineer to Technical Director: the team's first hydrogen fuel cell prototype, best UK team in 2023, and now autonomous steering.</p>
+            <ul class="chips"><li>Hydrogen</li><li>KiCAD</li><li>Autonomy</li></ul>
             <span class="more">Experience ↓</span>
           </div>
         </a>
         <a class="card reveal" href="#about">
           <div class="inner">
             <div class="num">05</div>
-            <div class="label">Education · 2026</div>
-            <h3>MEng Mechanical Engineering, UCL</h3>
-            <p>First Class Honours. Best CAD award from Autodesk for individual work on MARIS.</p>
+            <div class="label">Off the clock</div>
+            <h3>Skipper and maker</h3>
+            <p>Licensed skipper with 900+ nautical miles off Croatia. Restored a 50-year-old wooden boat; carved a speargun and laid up carbon freediving fins.</p>
             <span class="more">About ↓</span>
           </div>
         </a>
@@ -364,13 +371,32 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     <div class="wrap">
       <div class="head reveal">
         <div class="label">Experience</div>
-        <div><h2>Racing and industry</h2></div>
+        <div><h2>Experience</h2><div class="sub">Formula E, four years of Shell Eco-marathon, and the workshop in between.</div></div>
       </div>
       <div class="timeline">
         <div class="item reveal"><div class="when">2026 →</div><div><h3>Sentyx</h3><div class="org">Co-founder</div><p>Next-generation underwater glider. Owner of buoyancy engine, pressure vessel, batteries and actuation.</p></div></div>
-        <div class="item reveal"><div class="when">Placement</div><div><h3>Jaguar TCS Racing</h3><div class="org">Design Engineer</div><p>Design engineering on the team's Formula E cars.</p></div></div>
-        <div class="item reveal"><div class="when">4 years</div><div><h3>UCL Racing · HyperMile</h3><div class="org">Shell Eco-marathon</div><p>Four years building ultra-efficient hydrogen vehicles. Team won the Autonomous Driving Challenge and qualified for the World Championship in Qatar.</p></div></div>
-        <div class="item reveal"><div class="when">2026</div><div><h3>University College London</h3><div class="org">MEng Mechanical Engineering · First Class Honours</div><p>Final-year project: MARIS autonomous underwater glider.</p></div></div>
+        <div class="item reveal"><div class="when">Oct 2025 – Jun 2026</div><div><h3>UCL Racing · Autonomous vehicle</h3><div class="org">Mechanical Engineer · Shell Eco-marathon</div><p>Autonomous steering system for the team's self-driving prototype: mechanical actuation for steering control without driver input.</p></div></div>
+        <div class="item reveal"><div class="when">Sep 2024 – Sep 2025</div><div><h3>Jaguar TCS Racing</h3><div class="org">Design Engineer, student placement · Formula E</div>
+          <ul class="pts">
+            <li>12-person Design Office of the reigning Teams' and Manufacturers' Champions, on the Gen 3.5 development car and early Gen 4 design.</li>
+            <li>Designed FIA-regulated composite anti-intrusion panels with senior composites engineers; both panels fitted to the car.</li>
+            <li>Trialled and introduced nTop generative design: 10% mass reduction on an existing gearcase, replacing an outsourced process.</li>
+            <li>50+ engineering drawings to GD&amp;T in Siemens NX: gearbox assemblies, tooling and pit equipment.</li>
+          </ul></div></div>
+        <div class="item reveal"><div class="when">Jun 2023 – Jun 2024</div><div><h3>UCL Racing · Technical Director</h3><div class="org">Shell Eco-marathon</div>
+          <ul class="pts">
+            <li>Led a team of 15 to deliver the team's first hydrogen fuel cell prototype, from concept to a fully working vehicle.</li>
+            <li>Guided a new carbon fibre monocoque chassis targeting &gt;6500 km/l, aligning mechanical, electrical and composites sub-teams.</li>
+          </ul></div></div>
+        <div class="item reveal"><div class="when">Oct 2022 – Jun 2023</div><div><h3>UCL Racing · Electronics Engineer</h3><div class="org">Shell Eco-marathon</div>
+          <ul class="pts">
+            <li>Led the powertrain, loom and telemetry sub-team: best UK team at Shell Eco-marathon Europe 2023 with 246.47 km/kWh.</li>
+            <li>Designed a custom motor controller in KiCAD and a low-voltage 6S2P lithium battery pack.</li>
+          </ul></div></div>
+        <div class="item reveal"><div class="when">2021 – 2025, summers</div><div><h3>Skipper4You, Split</h3><div class="org">Licensed Skipper</div><p>900+ nautical miles with over 30 clients.</p></div></div>
+        <div class="item reveal"><div class="when">Oct 2022 – Jun 2024</div><div><h3>Mechspace UCL</h3><div class="org">Student Mentor, university workshop</div><p>Guiding students in safe use of laser cutters, 3D printers, lathes and mills.</p></div></div>
+        <div class="item reveal"><div class="when">2021 – 2026</div><div><h3>University College London</h3><div class="org">MEng Mechanical Engineering · First Class Honours</div><p>Modules incl. Maritime Design, Ship Hydrostatics, Offshore and Coastal Engineering, Data-Driven Methods. Final-year project: MARIS.</p></div></div>
+        <div class="item reveal"><div class="when">2019 – 2021</div><div><h3>Durham School</h3><div class="org">A Levels: Maths, Further Maths, Physics · A* A A</div><p>Two-year academic scholarship, HMC Projects Scholarship Programme.</p></div></div>
       </div>
     </div>
   </section>
@@ -379,13 +405,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     <div class="wrap about">
       <div class="label reveal">About</div>
       <div class="text reveal">
-        <p class="lead">I like vehicles that have to work somewhere unforgiving: under 200 m of water, or on a track where every watt counts.</p>
-        <p>My work sits where mechanical design, electronics and software meet. I'm based between Zagreb and Budapest, where I'm co-founding Sentyx.</p>
+        <figure class="portrait"><img src="img/bartol-portrait.webp" width="720" height="900" loading="lazy" alt="Portrait of Bartol Vahcic in graduation cap and gown"></figure>
+        <p class="lead">A licensed skipper with 900+ nautical miles off the Croatian coast, I now design vehicles that work beneath the surface.</p>
+        <p>My work sits where mechanical design, electronics and software meet. I'm based between Zagreb and Budapest, where I'm co-founding Sentyx. Croatian (native), English (C2), German (A2).</p>
       </div>
       <div class="skills reveal">
-        <div><b>Mechanical design</b>Buoyancy engines, pressure vessels, actuation, composite structures</div>
-        <div><b>Analysis</b>CFD, surrogate-based shape optimisation</div>
-        <div><b>Systems</b>Batteries, electronics integration, autonomous vehicles</div>
+        <div><b>CAD / CAM</b>Autodesk Fusion, Siemens NX, Teamcenter, nTop, KiCAD</div>
+        <div><b>Simulation</b>ANSYS Mechanical and Fluent, SimScale CFD</div>
+        <div><b>Programming</b>MATLAB, Python</div>
+        <div><b>Hands-on</b>Composites lay-up, battery packs, motor controllers, workshop machining</div>
         <div><b>Base</b>Zagreb / Budapest</div>
       </div>
     </div>
@@ -399,6 +427,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     <div class="row">
       <a class="email" id="email" href="mailto:info@sentyx.eu">info@sentyx.eu</a>
       <button class="btn ghost" id="copy" type="button">Copy email</button>
+      <a class="btn primary" href="https://www.linkedin.com/in/bartolvahcic" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
   </div>
 </section>
