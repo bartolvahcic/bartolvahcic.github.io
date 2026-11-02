@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bartol Vahcic</title>
+<meta name="description" content="Bartol Vahcic, mechanical design engineer. Underwater gliders, racing vehicles, and co-founder of Sentyx.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an engineering drawing sheet. Title block header, hero render with a spec strip, then project sheets with mono data columns. */
+:root{
+  --paper:#f7f8f6; --plate:#ffffff; --ink:#151a20; --muted:#58616b; --rule:#d5d9dc;
+  --signal:#e8b400; --signal-ink:#7a5d00;
+  --display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#101418; --plate:#f4f5f3; --ink:#e7eaec; --muted:#9aa3ac; --rule:#2a3138;
+  --signal:#f2c230; --signal-ink:#f2c230; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#101418; --plate:#f4f5f3; --ink:#e7eaec; --muted:#9aa3ac; --rule:#2a3138;
+  --signal:#f2c230; --signal-ink:#f2c230; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--body);margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit;text-decoration-color:var(--signal);text-underline-offset:3px;text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:.005em}
+.label{font:500 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Title block */
+.tb{border-bottom:1px solid var(--rule)}
+.tb .wrap{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;padding-block:40px 28px}
+.tb h1{font-size:clamp(52px,9vw,104px);font-weight:700;text-transform:uppercase;letter-spacing:-.005em}
+.tb .role{font:500 clamp(18px,2.4vw,24px)/1.3 var(--display);color:var(--muted);margin-top:10px;letter-spacing:.02em}
+.cells{display:grid;grid-template-columns:repeat(2,auto);border:1px solid var(--rule);font:400 12px/1.4 var(--mono)}
+.cells div{padding:8px 14px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.cells div:nth-child(2n){border-right:0}.cells div:nth-last-child(-n+2){border-bottom:0}
+.cells b{display:block;font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Hero */
+.hero{padding-block:36px 8px}
+.plate{background:var(--plate);border-radius:2px;overflow:hidden}
+.plate img{display:block;width:100%;height:auto}
+.hero .plate{padding:clamp(8px,3vw,32px)}
+.caption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:10px}
+.lede{font-size:clamp(19px,2.2vw,23px);line-height:1.5;max-width:40ch;margin:36px 0 0}
+
+/* Sections */
+section.sheet{padding-block:64px;border-top:1px solid var(--rule)}
+.sheet-head{display:grid;grid-template-columns:160px 1fr;gap:24px;margin-bottom:28px}
+.sheet-head h2{font-size:clamp(36px,5vw,56px)}
+.sheet-head .sub{color:var(--muted);margin-top:6px;font-size:17px}
+.body{display:grid;grid-template-columns:160px 1fr;gap:24px}
+.body>*{min-width:0}
+.text{max-width:64ch}
+.text p{margin:0 0 14px}
+
+.specs{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);margin:28px 0}
+.specs div{padding:14px 16px 14px 0;border-bottom:1px solid var(--rule)}
+.specs .v{font:600 34px/1 var(--display);font-variant-numeric:tabular-nums}
+.specs .v small{font:500 14px var(--mono);color:var(--muted);margin-left:3px}
+.specs .k{font:400 12px/1.4 var(--mono);color:var(--muted);margin-top:6px}
+
+.awards{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.awards li{font:500 12px/1 var(--mono);padding:8px 10px;border:1px solid var(--signal);color:var(--signal-ink);letter-spacing:.03em}
+
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px}
+.gallery figure{margin:0}
+.gallery .plate{padding:12px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;max-width:100%}
+.gallery .plate img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
+.gallery figcaption{margin-top:8px}
+
+.now{position:relative}
+.now .tag{display:inline-block;background:var(--signal);color:#151a20;font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:6px 8px;margin-bottom:12px}
+
+.rows{border-top:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.row .when{font:400 13px var(--mono);color:var(--muted);white-space:nowrap}
+.row h3{font-size:24px}
+.row p{margin:4px 0 0;color:var(--muted)}
+
+footer{border-top:1px solid var(--rule);padding-block:40px 56px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+.contact{font:500 15px var(--mono);user-select:all}
+button.copy{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:none;color:var(--ink);border:1px solid var(--ink);padding:8px 12px;cursor:pointer;border-radius:2px}
+button.copy:hover{background:var(--ink);color:var(--paper)}
+button.copy:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+@media (max-width:760px){
+  .tb .wrap{grid-template-columns:1fr}
+  .sheet-head,.body{grid-template-columns:1fr;gap:8px}
+  .specs{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero .plate img{animation:rise .9s ease-out both}
+  @keyframes rise{from{transform:translateY(10px);opacity:.6}to{transform:none;opacity:1}}
+}
+</style>
+</head>
+<body>
+
+<header class="tb">
+  <div class="wrap">
+    <div>
+      <div class="label">Engineering portfolio</div>
+      <h1>Bartol Vahcic</h1>
+      <div class="role">Mechanical design engineer · Co-founder, Sentyx</div>
+    </div>
+    <div class="cells" aria-label="Summary">
+      <div><b>Degree</b>MEng Mech. Eng., UCL</div>
+      <div><b>Class</b>First Class Honours</div>
+      <div><b>Focus</b>Mechanical · Electronics</div>
+      <div><b>Base</b>Zagreb / Budapest</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="plate"><img src="img/maris-hero.webp" width="1600" height="736" alt="CAD render of the MARIS blended-wing-body underwater glider, yellow fibreglass skin with vertical stabiliser"></div>
+    <div class="caption"><span class="label">Fig. 1 · MARIS autonomous underwater glider, full assembly</span><span class="label">Design depth 200 m</span></div>
+    <p class="lede">I design and build autonomous vehicles where mechanical design, electronics and software meet: an award-winning underwater glider, four years of ultra-efficient race cars, and Formula E.</p>
+  </div>
+
+  <section class="sheet now">
+    <div class="wrap">
+      <div class="sheet-head">
+        <div class="label">Now · 2026</div>
+        <div><span class="tag">Current</span><h2>Sentyx</h2><div class="sub">Co-founder · Autonomous undersea systems</div></div>
+      </div>
+      <div class="body">
+        <div class="label">Role</div>
+        <div class="text">
+          <p>Sentyx builds long-endurance underwater gliders for subsea security and infrastructure monitoring, starting with protection of subsea cables. The founding team has gone full-time and is building the next-generation glider from scratch in our Budapest workshop.</p>
+          <p>I own the buoyancy engine, pressure vessel, batteries and actuation. First sea trial: November 2026.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="maris">
+    <div class="wrap">
+      <div class="sheet-head">
+        <div class="label">Project 01 · UCL</div>
+        <div><h2>Project MARIS</h2><div class="sub">Blended-wing-body autonomous underwater glider · MEng final-year project, team of 8</div></div>
+      </div>
+      <div class="body">
+        <div class="label">Summary</div>
+        <div class="text">
+          <p>MARIS is a 200 m-rated underwater glider that flies on buoyancy alone. Two variable buoyancy devices change its displacement to dive and climb, and a blended-wing hull turns that vertical motion into forward glide. A pitch-and-roll mechanism steers it.</p>
+          <p>The flooded skeleton hull splits into a central body, two wings and a vertical stabiliser, and is closed by 15 detachable fibreglass skin panels. Three aluminium pressure vessels carry the buoyancy and attitude systems, with Iridium and GNSS antennas in custom pressure-rated blisters. The hull shape came out of a CFD-driven surrogate optimisation for lift-to-drag.</p>
+          <ul class="awards">
+            <li>Best Prototype</li><li>Best Poster</li><li>CEE-FES Faculty Best Prototype</li><li>Best CAD · Autodesk (individual)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="specs">
+        <div><div class="v">200<small>m</small></div><div class="k">Design depth</div></div>
+        <div><div class="v">44.4<small>kg</small></div><div class="k">Dry mass</div></div>
+        <div><div class="v">±13.3<small>N</small></div><div class="k">Buoyancy swing, 2 VBDs</div></div>
+        <div><div class="v">≥10<small>:1</small></div><div class="k">Lift-to-drag target, validated</div></div>
+      </div>
+      <div class="gallery">
+        <figure><div class="plate"><img src="img/maris-internals.webp" width="1600" height="830" loading="lazy" alt="MARIS with top skin panels removed, showing pressure vessels and foam inside the skeleton"></div><figcaption class="label">Fig. 2 · Skins removed, internal layout</figcaption></figure>
+        <figure><div class="plate"><img src="img/maris-exploded.webp" width="1600" height="810" loading="lazy" alt="Exploded view of the MARIS skeleton: two wings, central body and stabiliser"></div><figcaption class="label">Fig. 3 · Exploded skeleton, four-part split</figcaption></figure>
+        <figure><div class="plate"><img src="img/maris-skeleton.webp" width="1600" height="728" loading="lazy" alt="Assembled MARIS skeleton frame without skins"></div><figcaption class="label">Fig. 4 · Assembled skeleton frame</figcaption></figure>
+        <figure><div class="plate"><img src="img/maris-shackle.webp" width="1600" height="900" loading="lazy" alt="Close-up of a recovery shackle mounted on the glider hull"></div><figcaption class="label">Fig. 5 · Recovery and lift point</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet">
+    <div class="wrap">
+      <div class="sheet-head">
+        <div class="label">Experience</div>
+        <div><h2>Racing and industry</h2></div>
+      </div>
+      <div class="rows">
+        <div class="row"><div><h3>UCL Racing · HyperMile, Shell Eco-marathon</h3><p>Four years building ultra-efficient hydrogen vehicles. Team won the Autonomous Driving Challenge and qualified for the World Championship in Qatar.</p></div><div class="when">4 yrs</div></div>
+        <div class="row"><div><h3>Jaguar TCS Racing · Design Engineer placement</h3><p>Design engineering on the team's Formula E cars.</p></div><div class="when">Placement</div></div>
+        <div class="row"><div><h3>UCL · MEng Mechanical Engineering</h3><p>First Class Honours.</p></div><div class="when">2026</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><div class="label">Contact</div><div class="contact" id="email">info@sentyx.eu</div></div>
+    <button class="copy" id="copy" type="button">Copy email</button>
+  </div>
+</footer>
+
+<script>
+document.getElementById('copy').addEventListener('click',function(){
+  var b=this,t=document.getElementById('email').textContent;
+  function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';}
+  try{navigator.clipboard.writeText(t).then(function(){b.textContent='Copied'},sel)}catch(e){sel()}
+  setTimeout(function(){b.textContent='Copy email'},2000);
+});
+</script>
+
+</body>
+</html>
