@@ -74,6 +74,16 @@ section.sheet{padding-block:64px;border-top:1px solid var(--rule)}
 .gallery .plate img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
 .gallery figcaption{margin-top:8px}
 
+/* Field test: real photos, full-bleed in the frame (no plate padding) */
+.field{margin-top:56px;padding-top:28px;border-top:1px solid var(--rule)}
+.field .body{margin-bottom:24px}
+.photo{margin:0}
+.photo img,.photo video{display:block;width:100%;height:100%;object-fit:cover;border-radius:2px;background:var(--rule)}
+.photo figcaption{margin-top:8px}
+.photo.wide img,.photo.wide video{aspect-ratio:16/9}
+.pair{display:grid;grid-template-columns:9fr 16fr;gap:16px;margin-top:16px;align-items:end}
+.pair .photo img{aspect-ratio:auto}
+
 .now{position:relative}
 .now .tag{display:inline-block;background:var(--signal);color:#151a20;font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:6px 8px;margin-bottom:12px}
 
@@ -94,7 +104,7 @@ button.copy:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
   .tb .wrap{grid-template-columns:1fr}
   .sheet-head,.body{grid-template-columns:1fr;gap:8px}
   .specs{grid-template-columns:repeat(2,1fr)}
-  .gallery{grid-template-columns:1fr}
+  .gallery,.pair{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:no-preference){
   .hero .plate img{animation:rise .9s ease-out both}
@@ -170,6 +180,18 @@ button.copy:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
         <figure><div class="plate"><img src="img/maris-exploded.webp" width="1600" height="810" loading="lazy" alt="Exploded view of the MARIS skeleton: two wings, central body and stabiliser"></div><figcaption class="label">Fig. 3 · Exploded skeleton, four-part split</figcaption></figure>
         <figure><div class="plate"><img src="img/maris-skeleton.webp" width="1600" height="728" loading="lazy" alt="Assembled MARIS skeleton frame without skins"></div><figcaption class="label">Fig. 4 · Assembled skeleton frame</figcaption></figure>
         <figure><div class="plate"><img src="img/maris-shackle.webp" width="1600" height="900" loading="lazy" alt="Close-up of a recovery shackle mounted on the glider hull"></div><figcaption class="label">Fig. 5 · Recovery and lift point</figcaption></figure>
+      </div>
+
+      <div class="field">
+        <div class="body">
+          <div class="label">Field test</div>
+          <div class="text"><p>The finished glider was taken from CAD to open water for a full lake trial, flown on a safety tether.</p></div>
+        </div>
+        <figure class="photo wide"><img src="img/maris-lake-underwater.webp" width="1280" height="720" loading="lazy" alt="MARIS underwater in green lake water, yellow skin and vertical stabiliser lit from above, tether trailing behind"><figcaption class="label">Fig. 6 · Submerged during the lake trial</figcaption></figure>
+        <div class="pair">
+          <figure class="photo"><img src="img/maris-lake-pontoon.webp" width="900" height="1200" loading="lazy" alt="Team member in a wetsuit at the edge of a pontoon guiding the yellow glider in the lake"><figcaption class="label">Fig. 7 · Launch from the pontoon</figcaption></figure>
+          <figure class="photo"><img src="img/maris-lake-shallows.webp" width="1024" height="768" loading="lazy" alt="Team member wading in the rain beside the glider floating at the surface"><figcaption class="label">Fig. 8 · Surface checks in the shallows</figcaption></figure>
+        </div>
       </div>
     </div>
   </section>
